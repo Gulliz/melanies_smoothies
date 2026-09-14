@@ -3,9 +3,24 @@ import streamlit as st
 import os
 from snowflake.snowpark.functions import col
 
+import streamlit as st
+
+totp = st.text_input("Enter your Snowflake MFA code")
+
+if totp:
+    conn = st.connection(
+        "snowflake",
+        user=st.secrets["snowflake"]["user"],
+        password=st.secrets["snowflake"]["password"],
+        totp=totp,
+        account=st.secrets["snowflake"]["account"]
+    )
+    session = conn.session()
+    st.success("Connected!")
+
 # Create a database connection to Snowflake
-conn = st.connection("snowflake")
-session = conn.session()
+#conn = st.connection("snowflake")
+#session = conn.session()
 
 # Write directly to the app
 st.title(f":cup_with_straw: Customize Your Smoothie :cup_with_straw:")
