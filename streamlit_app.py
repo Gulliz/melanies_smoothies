@@ -11,7 +11,7 @@ if totp:
     conn = st.connection(
         "snowflake",
         user=st.secrets["connections.snowflake"]["user"],
-        password=st.secrets["sonnections.snowflake"]["password"],
+        password=st.secrets["connections.snowflake"]["password"],
         totp=totp,
         account=st.secrets["connections.snowflake"]["account"]
     )
