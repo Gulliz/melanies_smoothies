@@ -58,7 +58,7 @@ if totp:
                             values ('""" + ingredients_string + """','"""+name_on_order+"""')"""
         
             #st.write(my_insert_stmt)
-            if ingredients_string:0
+            if ingredients_string:
                 session.sql(my_insert_stmt).collect()
                 st.success('Your Smoothie is ordered, '+ name_on_order + '!', icon="✅")
 
@@ -67,3 +67,4 @@ if totp:
     st.text(smoothiefroot_response.json())
     
         
+
