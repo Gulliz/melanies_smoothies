@@ -28,18 +28,13 @@ if totp:
     name_on_order = st.text_input('Name on Smoothie:')
     
     
-    #option = st.selectbox(
-    #    'What is your favourite fruit?',
-    #    ('Banana','Banananana'))
-    #st.write('Your favourite fruit is:', option)
-    
     my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
     #st.dataframe(data=my_dataframe, use_container_width=True)
     #st.stop()
     #st.dataframe(data=my_dataframe, use_container_width=True)
     pd_df=my_dataframe.to_pandas()
-    st.dataframe(pd_df)
-    st.stop()
+    #st.dataframe(pd_df)
+    #st.stop()
     
     ingredients_list = st.multiselect('Choose up to 5 ingredients:'
         ,my_dataframe
