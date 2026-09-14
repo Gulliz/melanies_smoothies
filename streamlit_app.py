@@ -57,12 +57,12 @@ if totp:
                             values ('""" + ingredients_string + """','"""+name_on_order+"""')"""
         
             #st.write(my_insert_stmt)
-            if ingredients_string:
+            if ingredients_string:0
                 session.sql(my_insert_stmt).collect()
                 st.success('Your Smoothie is ordered, '+ name_on_order + '!', icon="✅")
 
     import requests  
-    smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon](https://my.smoothiefroot.com/api/fruit/watermelon)")  
+    smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")  
     st.text(smoothiefroot_response.json())
     
         
