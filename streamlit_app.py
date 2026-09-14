@@ -2,6 +2,7 @@
 import streamlit as st
 import os
 from snowflake.snowpark.functions import col
+import requests 
 
 import streamlit as st
 
@@ -61,7 +62,7 @@ if totp:
                 session.sql(my_insert_stmt).collect()
                 st.success('Your Smoothie is ordered, '+ name_on_order + '!', icon="✅")
 
-    import requests  
+     
     smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")  
     st.text(smoothiefroot_response.json())
     
