@@ -10,10 +10,10 @@ totp = st.text_input("Enter your Snowflake MFA code")
 if totp:
     conn = st.connection(
         "snowflake",
-        user=st.secrets["snowflake"]["user"],
-        password=st.secrets["snowflake"]["password"],
+        user=st.secrets["connections.snowflake"]["user"],
+        password=st.secrets["sonnections.snowflake"]["password"],
         totp=totp,
-        account=st.secrets["snowflake"]["account"]
+        account=st.secrets["connections.snowflake"]["account"]
     )
     session = conn.session()
     st.success("Connected!")
