@@ -8,13 +8,7 @@ import streamlit as st
 totp = st.text_input("Enter your Snowflake MFA code")
 
 if totp:
-    conn = st.connection(
-        "snowflake",
-        user=st.secrets["connections.snowflake"]["user"],
-        password=st.secrets["connections.snowflake"]["password"],
-        totp=totp,
-        account=st.secrets["connections.snowflake"]["account"]
-    )
+    conn = st.connection("snowflake")
     session = conn.session()
     st.success("Connected!")
 
